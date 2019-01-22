@@ -1,10 +1,6 @@
 package com.codeclan.wk13day2HW.annotatingRelationships.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "files")
@@ -77,4 +73,5 @@ public class File {
     public void setFolder(Folder folder) {
         this.folder = folder;
     }
+
 }

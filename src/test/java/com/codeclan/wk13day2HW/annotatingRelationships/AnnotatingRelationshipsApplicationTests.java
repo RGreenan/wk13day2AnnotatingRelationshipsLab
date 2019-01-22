@@ -2,8 +2,10 @@ package com.codeclan.wk13day2HW.annotatingRelationships;
 
 import com.codeclan.wk13day2HW.annotatingRelationships.models.File;
 import com.codeclan.wk13day2HW.annotatingRelationships.models.Folder;
+import com.codeclan.wk13day2HW.annotatingRelationships.models.User;
 import com.codeclan.wk13day2HW.annotatingRelationships.repositories.FileRepository;
 import com.codeclan.wk13day2HW.annotatingRelationships.repositories.FolderRepository;
+import com.codeclan.wk13day2HW.annotatingRelationships.repositories.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +22,19 @@ public class AnnotatingRelationshipsApplicationTests {
 	@Autowired
 	FolderRepository folderRepository;
 
+	@Autowired
+    UserRepository userRepository;
+
 	@Test
 	public void contextLoads() {
 	}
 
 	@Test
 	public void canCreateFileThenSave(){
-		Folder folder1 = new Folder("master_folder");
+	    User user1 = new User("Mick");
+	    userRepository.save(user1);
+
+		Folder folder1 = new Folder("master_folder", user1);
 		folderRepository.save(folder1);
 
 		File file1 = new File("misc_file", "text", 300.0, folder1);
