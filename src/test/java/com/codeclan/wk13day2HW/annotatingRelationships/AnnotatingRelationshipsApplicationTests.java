@@ -30,7 +30,7 @@ public class AnnotatingRelationshipsApplicationTests {
 	}
 
 	@Test
-	public void canCreateFileThenSave(){
+	public void canCreateUserFileFolderThenSave(){
 	    User user1 = new User("Mick");
 	    userRepository.save(user1);
 
